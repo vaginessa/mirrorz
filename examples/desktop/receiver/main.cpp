@@ -82,7 +82,7 @@ int main()
 	sdl_rect.h = 720;
 
 	MirrorOptions options;
-	options.video.encoder = const_cast<char*>("libx264");
+	options.video.encoder = const_cast<char*>(mirror_find_video_encoder());
 	options.video.decoder = const_cast<char*>("h264");
 	options.video.width = sdl_rect.w;
 	options.video.height = sdl_rect.h;
@@ -129,6 +129,7 @@ int main()
 		MessageBox(nullptr, TEXT("Failed to create receiver!"), TEXT("Error"), 0);
 		SDL_Quit();
     	mirror::Quit();
+        
 		return -1;
 	}
 
@@ -143,5 +144,6 @@ int main()
 
 	SDL_Quit();
     mirror::Quit();
+
 	return 0;
 }
