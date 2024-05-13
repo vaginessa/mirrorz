@@ -1,5 +1,5 @@
 mod dequeue;
-mod packet;
+pub mod packet;
 mod receiver;
 mod sender;
 
